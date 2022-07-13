@@ -1,7 +1,9 @@
 package lk.ijse.spring.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lk.ijse.spring.entity.Car;
 import lk.ijse.spring.entity.Customer;
+import lk.ijse.spring.entity.Driver;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,8 +18,6 @@ import java.time.LocalTime;
 @ToString
 public class BookingDto {
     private String bookingId;
-    private String carType;
-    private Customer customer;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickupDate;
     @JsonFormat(pattern = "HH:mm")
@@ -25,5 +25,9 @@ public class BookingDto {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate returnDate;
     private String bookingStatus;
+    private double downPayment;
     private String paymentSlip;
+    private Customer customer;
+    private Car car;
+    private Driver driver;
 }

@@ -36,7 +36,7 @@ public class BookingServiceImpl implements BookingService {
         if (bookingRepo.existsById(bookingDto.getBookingId())) {
             bookingRepo.save(modelMapper.map(bookingDto, Booking.class));
         } else {
-            throw new RuntimeException("NO Booking For Id: " + bookingDto.getBookingId());
+            throw new RuntimeException("No Booking For Id: " + bookingDto.getBookingId());
         }
     }
 

@@ -17,13 +17,19 @@ import java.time.LocalTime;
 public class Booking {
     @Id
     private String bookingId;
-    private String carType;
-    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
-    @JoinColumn(name = "customerNic", referencedColumnName = "customerNic", nullable = false)
-    private Customer customer;
     private LocalDate pickupDate;
     private LocalTime pickupTime;
     private LocalDate returnDate;
     private String bookingStatus;
+    private double downPayment;
     private String paymentSlip;
+    @ManyToOne
+    @JoinColumn(name = "customerNic", referencedColumnName = "customerNic", nullable = false)
+    private Customer customer;
+    @ManyToOne
+    @JoinColumn(name = "carRegNo", referencedColumnName = "carRegNo", nullable = false)
+    private Car car;
+    @ManyToOne
+    @JoinColumn(name = "driverNic", referencedColumnName = "driverNic")
+    private Driver driver;
 }

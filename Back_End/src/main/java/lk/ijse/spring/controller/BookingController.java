@@ -1,7 +1,6 @@
 package lk.ijse.spring.controller;
 
 import lk.ijse.spring.dto.BookingDto;
-import lk.ijse.spring.dto.CustomerDto;
 import lk.ijse.spring.service.BookingService;
 import lk.ijse.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +20,14 @@ public class BookingController {
         return new ResponseUtil(200, "Ok", bookingService.getAllBookings());
     }
 
-    @GetMapping(path = "/{bookingId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{bookingId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil searchBooking(@PathVariable String bookingId) {
         return new ResponseUtil(200, "Ok", bookingService.searchBooking(bookingId));
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil saveCustomer(@RequestBody BookingDto bookingDto) {
+    public ResponseUtil saveBooking(@RequestBody BookingDto bookingDto) {
         bookingService.saveBooking(bookingDto);
         return new ResponseUtil(200, "Saved Successfully...", null);
     }
