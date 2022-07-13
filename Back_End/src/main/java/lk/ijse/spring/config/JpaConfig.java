@@ -1,5 +1,6 @@
 package lk.ijse.spring.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -24,14 +25,12 @@ import javax.sql.DataSource;
 public class JpaConfig {
 
 
+    @Autowired
     Environment environment;
 
-    public JpaConfig(Environment environment) {
-        this.environment = environment;
-    }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(DataSource dataSource, JpaVendorAdapter vendorAdapter) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, JpaVendorAdapter vendorAdapter) {
         LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
         bean.setJpaVendorAdapter(vendorAdapter);
         bean.setDataSource(dataSource);

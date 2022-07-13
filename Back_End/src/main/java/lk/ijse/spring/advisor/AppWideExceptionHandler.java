@@ -5,15 +5,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestController
 @CrossOrigin
+@RestControllerAdvice
 public class AppWideExceptionHandler {
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler({Exception.class})
-    public ResponseUtil exceptionHandler(Exception e){
-        return new ResponseUtil(500,e.getMessage(),null);
+    public ResponseUtil exceptionHandler(Exception e) {
+        return new ResponseUtil(500, e.getMessage(), null);
     }
 }
