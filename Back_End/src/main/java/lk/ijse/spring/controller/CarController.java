@@ -21,7 +21,7 @@ public class CarController {
         return new ResponseUtil(200, "Ok", carService.getAllCars());
     }
 
-    @GetMapping(path = "{/carRegNo}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{carRegNo}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil searchCar(@PathVariable String carRegNo) {
         return new ResponseUtil(200, "Ok", carService.searchCar(carRegNo));
     }

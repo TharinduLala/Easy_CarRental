@@ -21,7 +21,7 @@ public class DriverController {
         return new ResponseUtil(200, "Ok", driverService.getAllDrivers());
     }
 
-    @GetMapping(path = "{/driverNic}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/{driverNic}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil searchDriver(@PathVariable String driverNic) {
         return new ResponseUtil(200, "Ok", driverService.searchDriver(driverNic));
     }

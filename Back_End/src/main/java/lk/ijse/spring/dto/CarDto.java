@@ -17,7 +17,7 @@ public class CarDto {
     private String fuelType;
     private String transmissionType;
     private String carColour;
-    private double lossDamagePayment ;
+    private double lossDamagePayment;
     private double monthlyRate;
     private double dailyRate;
     private double freeKmForMonth;
