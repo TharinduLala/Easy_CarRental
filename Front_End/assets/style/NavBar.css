@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sansita&display=swap');
+
+
+header nav {
+    margin-bottom: 10px;
+}
+
+#navbarSupportedContent {
+    justify-content: flex-end !important;
+}
+
+#navBarCompanyName {
+    color: #6a1a21;
+    font-family: 'Sansita', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-item {
+    font-family: 'Sansita', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.nav-item a:hover,
+.nav-item a:focus {
+    color: red !important;
+}
+
+#navBarContactNo {
+    padding: 10px;
+    padding-bottom: 0;
+
+}
+
+#navBarContactNo:hover {
+    cursor: default;
+}
+
+#navBarContactNo p:nth-child(1) {
+    color: white;
+    background-color: red;
+}
+
+#navBarContactNo p:nth-child(2) {
+    color: black;
+}
+
+#loginForm {
+    position: absolute;
+    z-index: 5;
+    right: 10%;
+    background-color: white;
+    top: 5%;
+    border-radius: 5%;
+    opacity: 0.9;
+    font-family: 'Roboto', sans-serif;
+}
+#loginForm div p svg{
+    color: red;
+}
+
+footer section{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+footer section div:nth-child(1){
+    /*position: absolute;*/
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+footer section div:nth-child(2){
+    /*position: absolute;*/
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+footer section div:nth-child(2) a{
+    /*position: absolute;*/
+    padding: 10px;
+}
+
+
+

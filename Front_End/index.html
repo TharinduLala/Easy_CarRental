@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!-- <link
+             href="https://img.icons8.com/external-vitaliy-gorbachev-lineal-vitaly-gorbachev/60/000000/external-pos-terminal-business-vitaliy-gorbachev-lineal-vitaly-gorbachev.png"
+             rel="icon"
+     />-->
+    <meta
+            content="width=device-width,initial-scale=1.0"
+            name="viewport"
+    />
+    <title>Easy Car Rental</title>
+    <link href="assets/style/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/style/NavBar.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" id="navBarCompanyName">
+                <img alt="logo" class="d-inline-block align-text-top" src="assets/images/logo.jpg " width="80">
+                Easy Car Rental
+            </a>
+            <div id="navbarSupportedContent">
+                <div class="d-flex">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item ">
+                            <a aria-current="page" class="nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a aria-current="page" class="nav-link active" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a aria-current="page" class="nav-link active" href="#">Vehicles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a aria-current="page" class="nav-link active" href="#">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="navbar-nav me-auto mb-2 mb-lg-0" id="navBarContactNo"><p>HotLine</p>
+                        <p>+94111111111</p></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <section>
+        <div class="carousel slide carousel-fade" data-bs-ride="carousel" id="carouselExampleCaptions">
+            <div id="loginForm">
+                <form>
+                    <div class="mb-3" style="padding-left: 20px;padding-right: 20px;padding-top: 20px">
+                        <p>
+                            <svg class="bi bi-exclamation-circle" fill="currentColor" height="16" viewBox="0 0 16 16"
+                                 width="16" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                            </svg>
+                            please login to make booking
+                        </p>
+                    </div>
+                    <div class="mb-3" style="padding-left: 20px;padding-right: 20px">
+                        <label class="form-label" for="userId">User Id</label>
+                        <input aria-describedby="userIdHelp" class="form-control" id="userId" required>
+                        <div class="form-text" id="userIdHelp">Please Enter Your NIC</div>
+                    </div>
+                    <div class="mb-3" style="padding-left: 20px;padding-right: 20px">
+                        <label class="form-label" for="userPassword">Password</label>
+                        <input class="form-control" id="userPassword" required type="password">
+                    </div>
+                    <div class="mb-3" style="padding-left: 20px;padding-right: 20px">
+                        <button class="btn btn-primary" type="submit">Login</button>
+                    </div>
+                    <div class="mb-3" style="padding-left: 20px;padding-right: 20px">
+                        <p>Haven't Account? <a class="" href="#">Click to Register</a></p>
+                    </div>
+
+
+                </form>
+            </div>
+
+
+            <div class="carousel-indicators">
+                <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0"
+                        data-bs-target="#carouselExampleCaptions" type="button"></button>
+                <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleCaptions"
+                        type="button"></button>
+                <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#carouselExampleCaptions"
+                        type="button"></button>
+                <button aria-label="Slide 4" data-bs-slide-to="3" data-bs-target="#carouselExampleCaptions"
+                        type="button"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <img alt="slideOne" class="d-block w-100" src="assets/images/slide04.jpg   ">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>First slide label</h1>
+                        <h3>First Slide details.</h3>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img alt="slideTwo" class="d-block w-100" src="assets/images/slide03.jpg">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Second slide label</h1>
+                        <h3>Second Slide details.</h3>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img alt="slideThree" class="d-block w-100" src="assets/images/slide02.jpg">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Reasonable Price Ranges And Packages</h1>
+                        <h3>Third Slide details.</h3>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img alt="slideFour" class="d-block w-100" src="assets/images/slide01.jpg">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>Ride More Save More</h1>
+                        <h3>
+                            <Fourth></Fourth>
+                            Slide details.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleCaptions"
+                    type="button">
+                <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleCaptions"
+                    type="button">
+                <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </section>
+
+</main>
+<footer>
+    <section id="contact">
+        <div>
+            <p>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABJElEQVRIieXUPUoDQRjG8R8qaKcgBsHKGPAAFoK2HkE9Qu5grXcQWysjaBsrrVIavYFFWkGNFpoiWuwGlt3ZuJtNIz7wws687/yf+dgZ/oNqOMEDPuLo4jjOVdIB+vjOiT72q8CHY+CjGE5iUvtl5ul4w0oINJtjcIS9VN8rznGPBhYSuXl84q7oCh5TM3zBeiJfjw2TNd2icHhPDT4N1JzJHnhGMzkGXwXq0n2DHFZQHdktqifyG7Jb1AmB5nIMbrGTaC+J9vgybh9iMTCmsBqK3YFkbJYxgHYJeLssHLZKrGJ7EgNoFYC3JoXDqugPGvdErFUxgOYYg2ZV+EgXAfjVtOBE9+ApAe9heZoGsCt6DgbxdyHlPdch9fCMG1yXmtqf1g/2CJPvQAzABQAAAABJRU5ErkJggg==">Panadura,SriLanka
+            </p>
+            <p>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAA8klEQVRIie3VsS4EQRwH4I+oRMdFJZF7AFHKvQNPcLwGvZZHEI/giPpEqRERUV2hVqJwEkaxs7HWXuR2Zyt+yWSz2X9+XzGZWf4zZS4QCmuMzZTAuAQEHDQpnC29P1XMLKYEHipm1lICdxUz61hIBVxWzNzgtS5QTgdvvjb4HsupyvMMYvkogsmzEYEXrLYBwHlEBm0BXTxHZLctpB+BD2xPmJnDfBNkv4Dslb51cI33+DzGIbamAWYKSMApVmL5rZ/3VlDzzPRl91SQ7c1oQnm+aqWLs1+KGwF5ejjx/cQnBfIsYQdHuMKj7H8yTAX8kXwCkiNTT5rkMssAAAAASUVORK5CYII=">
+                +94715463515</p>
+            <p >
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAABL0lEQVRIie2VsU7CUBSGvxLohMHdhBUGfQwmGVww4VV4AGQlTK6OOBlfgIGQAIOLDjqrCWGkgyQEWE7N4XLKpRA2/uSE3nvO/39taVM4K4WqwAiIgDeglsJbE08kGbdW+MqofWV57/TA2AMoGqF6z/IO9fDcA5gCFbWuyN4uwJ8G9DyAFbAAGlILo+9WTwOyQAtY7gD4TkDXI5DTgEB+74HZEYCZZOhMAF6BSzkuAe8HAD6Ba1lfAM84A1/AjazzQDcF4AUoyHEZ+HD6/4YIqBuX6APEs3XJ2HqPXGObzT9pYsxMVD8nnsQX1Tq7vupfAQPVG8herL7nCr23ACAEOlKh00v0B2rAUpCw7yrRn9kz4GDFgN8TZP9owNMJABuZIfAg1GO/B99Ak+0H4Sxba4bss78Vq90WAAAAAElFTkSuQmCC">
+                lalanthatharindu@gmail.com</p>
+        </div>
+        <div>
+            <a href="">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEg0lEQVRoge2YS2icVRTH/+d+M5N3U9sami8T0GBpjMGKRkZdFVpcVrNoUBpFTTIW4wvdFcUoui0US7F5IIrFVd00biy4EGyFkpaWNMQoiElmGm0eNZkmmZnv3uMiqTSZ+70zgjK/5bn33PM/332d7wIlSpT4T0NbNVB0aHqflDhAJJ5g8F4CGgGqXmvlDDMmiWiCSV00CN/nu+JXtyJuuASGbtYIlU0KUBcDD/oKzBhT4CGVj/Wjty4TVEKwBPo4IuKpN4jpPQA7ggZfZ45BH6tU/Un0keXX2X8Cp9PNQvDXBDzi29cBBq4ogefR1fCzHz9fCRj9qUMgnAFQ7Uudd5ZAOCK7G855dRBeOxqD6RdAOIviiQeAGjC+MQbSnV4dPM3A+pc/CyASWJo/LDC3y2R82K2jewKfTe0xDDECoCaMoooIwaw0UBsjLFuMnGT8uaqQybOdS0YqehyvmuNO4zon0McR0ZC+FHTDEoDDTRV4raUKiboooqIwXPv5eZz7fVXrz8BllTITTqeT45JYPyoDiY8Kwhf7t6OjqcKxn9MXJOBRYd7oVcAJW4223l/OVBHTMVelNnzUVuMq3gtE/D6GbtouX9sERNY6CmBXkKD1lQbeaq0K4qpjp5DZHrtG2yW0Xh4E4nBTOWKa9X4rp3Bq7DamMvIf29W5vOt4AtSlgOO6Nm0C0aHpfUr5q23uJnFvTGt/5rt5/DiT8z0eE1pigzOtue7do5vbtEtIKhz0HeUuGquNAtvofD6Q+DtYSh3Q2bUJEEQicCQAtbHCYa/N+67TNkDET+rs2gQYaA4TzNCcjfNZFWZIMLBXZ7eZATZDRdMLCAUBcZ3d7hgNVTYUCa2m0MXZB4/V4PWWjWf+Ns0eSDZXovOBwott//Asri8E3x92CSwB2OllgAqDcE+Ze1VeZhDKNm0OBvDbktQ76DUVYLOJKe111DBMZiSWLW+7g4Fpnd1mE8OxhN0qJv7yvnQI0P5q6meA1U8BNfli/Jb3BBh0QWfXVrOxgamHJYSnd5uKCKF809q+cGgX9tRu3F4D48s4dmlxg23FYqxKb0vIYNGaS9Zf32zXbuJcT+M1MTA9SqBWt4FXLMbKpnWs07QqGQsBLzNijOnEA07/A4zPA0UrAkrwoF2bbQKqPHIawGxRFPljTmVjA3aN9jPw4u7bDPqkKJJ8wIwPnZ4eHW8glao/ycCVrZflmRG13Tzl1MH5Cu0jS5HqAGPRsV9xyEhFneggx6vavQbobvwVAp0AwhX0/rBA/JzbmxDg8Wlx7a2SXsa/k4QFppdkd/xbL509v43KHvMrMLfDpqjaEhiLIH5WJs0zXl08JwAAMhkflsxtDFz2r86VEalUm9cvfwdfCQAAkvEJlTITzPQ2gDnf/oXMMuNNWWsmcLTxF7/O/hMA1k6npHlC5qL3MfO7DGiveScYPMrE78hc9H6VbPjU7bSxI9wfWW9dZv3B6Xis/8ZDFvggET81mVFPV0flth1lQgDAQlapTF79AeAHZrqoInQer9SPhYpdokSJ/wd/A7yQheTiO82sAAAAAElFTkSuQmCC">
+            </a>
+            <a href="">
+                <img src="data:image/png;base64,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">
+            </a>
+            <a href="">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAC4ElEQVRoge2YT0hUQRzHP/PyX1rmJgbSqhhBB7sVGFFRFIR06GKH6GTdN7p4ibAg6hKRREiUBWFFdYkIi7oESZkgXYQoqGjdg6fN1t6qqPvr4Jrre7P5dmffpvA+MPD4zcxvft/9zc6b94OAgICAgIBVjPI6UA5SyzRhoBFFE9AAbAZC6VaTbhXpKWsznqeAyYznn8B4usURYljESBEFoswxqt4TNxIgYLGXUwjHUbQClV7FFogkwgcUD3hLrwLRDdIKkBbK2Mgz4LCvIXpF8QKbo2qYGWeXpZ0Q4hIrJXgAoY1KLuq6XBmQ/VQwxxiwwffAciNBkno1TDLT6M7ALLtYecEDVLOOVqdRt4W2FCGY/Eix1WnSCWguQij54kmAWQauvobmFiMXWREvAhRho0V2HoLejxDphqoC/5Us94+ry8B644VKSqE9Ao++QvtpsPSndR7UOQ06z1WFWo3qWohcg5tDsH23uT+hThxHv24LFU7AAtt2wI0BuPAYNjWYeCqjjbJMg1uA+CAAQCk4cAz6PkHHeSgtz89PnCUT/d1COiqqoKML7o3MC8qVNX9vuEC2u1AxEIHpyeXHObGWXuhKNENs5u/1/jBlw8Mr0HcZZqZznS3Uk8g0uAUobMQHASLwqg96OiE+lq+X3+oJc5kGtwDBztd7Vj4PQ3cERt6ZevrlNGTbQoUhPgZ3uuD5bUilzP0J406TTsCE8UKzM/C0B3rPgZ1YfrxXlJcMCDHvn/oaBvvh+hkY/WLgJAvCD6dJl4FvRot0HjGavgyu2HTvge9+RmCIKzadALMM+IuHDJQwiOa4WgEkmGTIaXQJUG+YAm4VJaRcUPQ4KxKQ7S4U5yzw0u+YcqAfm3O6jn+VFhX7OEmKE/+ttAiDCPcZ4G5OpUUdsocQFmFSNKEIowgjNKKoIUUNEEJRzeInaTmLopPAws1tIt0yC7yjCDEgiiLKLDGvxd2AgICAgIBVzR8UibLdyBYx4AAAAABJRU5ErkJggg==">
+            </a>
+            <a href="">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAADz0lEQVRoge2XTWgdVRiGn+/MpGnv3LRoqC4UhCz8I8RFRClSXdgqWkuV4CRpi1gqglZTuhFXkiDdCVIKBfEHo1Bzr0JRtGAqWhTBQhsaFX9ADbZisbXaJnPb5t6Z+VyotU0yc89MYlGYZzcz73fO+84ZzjcHCgoKCgoK/sfIJZ2tOnmdq+ZxYLXCNUCowvdG9b3QNbvo8Y7NLFm0O+iqry9/njRk0wDOSO2e6JvS+wxKnNv4oBr3hmBIkacBN8FKgLIt6vNe4u0Tbc65xXch8gSxfBn1eU/mC1A9Xna09JPAcNhb3prXvzMy9QIij1rKDwFdQAtwLJKoE3/Zb0likzqxercDyxQGnJHaLqrqWLv+e4xqsD6DeYBu/jR/0gj30lB13wjuTBKnBlCJO85fiD7maG0P1dOXW1tRFWJ91lr/DyHI/ljZ4bjud8bheJIwNQA66/laR51xtxqstnHRUjlzMyIdzZWzcEF7gFsQ2VT3y18kCVMDCGZijttXqzLqVKb28Nbk9Wn1Mdpp53dOfhXiVZHvvZMmSg0QLT6zHySY+6nc70TmK6cSvOtUamvZq60zFSralsXxDAbC3qWfNhMlbGl/sW75lFSCVxQGEhQCrAFd40zVJqnU9in6mREdC018VCJJ3D2aojptI2veyF5Tz22tjSlcm9tMDkS5O+wrjzbTpW+jI8EGZ1GtR2LpUxhfOHvNMYZZXXkuUj8hFW0XZEcsisDZhbFmhdbPeT/YCNNXQOTjCy6XzMtSBgS+5iGp2WhTAzT88mGEAwtjyx5FP7HVpjcywCBbgMa8HGXGpO79FymbCRq+dwjVDVy6ECcjKX1gK24aACDqa3vTqNyGcDC/LztEeRFf6rZ6qwAAsXAVyCDKq4BVk8nB2VBlZ5aC9E58MatQ3fJvnuEEdtLv/ZylxnoFIomHgF8yu7LnSNiY3p61yDoAftsJE5t1wO9ZJ7EgFuERNrZPZi20DwA0+ksHIie6Ffgw60RpqMhQ6Jf35anN/UW3VGvdkXKfiK5ESTzyWTAc+d4mRDRPcaYVuJDGg6UxgaMo3XnHAIYj8TbnNQ95VmCvtjpBrV9hmyhdOedVRZ6J/dL2+ZiHlAAtI8FNGHFVY0+FK1SlQ+AOYCUwn5PWhKCbw962j+YxxnkS+0CjtfGjW295SpGtKKUF2P5PK/JcPF163vZP04bmvnYHVxqHjcDDApkP6QrjqL4ct4av88Blp/KYTCPbi61O3ehgVhDrCgydxLockXZgKXAKZRLDBKrfouZgZMwo/pIjC226oKCgoKCg4L/CH/2pQ2x506tNAAAAAElFTkSuQmCC">
+            </a>
+        </div>
+    </section>
+</footer>
+
+<script src="assets/style/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
