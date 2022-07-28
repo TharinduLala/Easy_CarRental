@@ -14,4 +14,6 @@ public interface AdminService {
     AdminDto searchAdmin(String adminNic);
 
     List<AdminDto> getAllAdmins();
+
+    String getAdminPassword(String adminNic);
 }

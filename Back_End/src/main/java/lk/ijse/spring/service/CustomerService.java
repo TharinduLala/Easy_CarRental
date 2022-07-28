@@ -15,4 +15,6 @@ public interface CustomerService {
     CustomerDto searchCustomer(String customerNic);
 
     List<CustomerDto> getAllCustomers();
+
+    String getCustomerPassword(String customerNic);
 }

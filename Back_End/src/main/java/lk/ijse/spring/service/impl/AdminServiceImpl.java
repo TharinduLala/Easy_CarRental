@@ -64,4 +64,13 @@ public class AdminServiceImpl implements AdminService {
         return modelMapper.map(adminRepo.findAll(), new TypeToken<List<AdminDto>>() {
         }.getType());
     }
+
+    @Override
+    public String getAdminPassword(String adminNic){
+        if(adminRepo.existsById(adminNic)){
+            return adminRepo.getAdminPassword(adminNic);
+        }else {
+            throw  new RuntimeException("Invalid User Id");
+        }
+    }
 }

@@ -63,4 +63,13 @@ public class CustomerServiceImpl implements CustomerService {
         return modelMapper.map(customerRepo.findAll(), new TypeToken<List<CustomerDto>>() {
         }.getType());
     }
+
+    @Override
+    public String getCustomerPassword(String customerNic){
+        if(customerRepo.existsById(customerNic)){
+            return customerRepo.getCustomerPassword(customerNic);
+        }else {
+            throw  new RuntimeException("Invalid User Id");
+        }
+    }
 }
