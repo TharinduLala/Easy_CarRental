@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Sansita&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Sansita&display=swap');
 
+body {
+    position: relative;
+    height: 100vh;
+}
+#main{
+    position: relative;
+}
 
 header nav {
     margin-bottom: 10px;
@@ -9,6 +16,7 @@ header nav {
 #navbarSupportedContent {
     justify-content: flex-end !important;
 }
+
 
 #navBarCompanyName {
     color: #6a1a21;
@@ -47,7 +55,7 @@ header nav {
     color: black;
 }
 
-#loginForm {
+#loginFormDiv {
     position: absolute;
     z-index: 5;
     right: 10%;
@@ -55,32 +63,42 @@ header nav {
     top: 5%;
     border-radius: 5%;
     opacity: 0.9;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Sansita', sans-serif;
 }
-#loginForm div p svg{
+
+#loginFormDiv div p svg {
     color: red;
 }
 
-footer section{
+#aboutUs {
     position: relative;
-    display: flex;
-    justify-content: space-around;
-}
-footer section div:nth-child(1){
-    /*position: absolute;*/
+    width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 15px;
+
 }
-footer section div:nth-child(2){
-    /*position: absolute;*/
-    display: flex;
-    flex-direction: row;
-    padding: 15px;
+
+#aboutUsDiv01 h1 {
+    /*padding: 3%;*/
+    font-family: 'Sansita', sans-serif;
+    font-weight: bolder;
 }
-footer section div:nth-child(2) a{
-    /*position: absolute;*/
-    padding: 10px;
+#aboutUsDiv01 p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+
+#aboutUsDiv02 h1 {
+    font-family: 'Sansita', sans-serif;
+    font-weight: bold;
+    /*padding: 3%;*/
+}
+
+#aboutUsDiv02 div div {
+    font-family: 'Sansita', sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 
