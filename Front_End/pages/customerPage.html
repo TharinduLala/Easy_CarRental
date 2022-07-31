@@ -12,62 +12,190 @@
     />
     <title>Easy Car Rental</title>
     <link href="../assets/style/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Sansita&display=swap');</style>
+    <style>
+        * {
+            font-family: 'Sansita', sans-serif;
+        }
+        @media (min-width:320px) and (max-width:426px) {
+            .car-main-container {
+                width: 100% !important;
+            }
+        }
+        @media only screen
+        and (min-device-width: 768px)
+        and (max-device-width: 1024px){
+            .car-main-container {
+                width: 40% !important;
+            }
+        }
+    </style>
 </head>
 <body>
+<nav class="navbar navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        <h1 style="font-family: 'Sansita', sans-serif;
+    font-weight: bold;">Customer Dashboard</h1>
+        <button aria-controls="offcanvasDarkNavbar" class="navbar-toggler" data-bs-target="#offcanvasDarkNavbar" data-bs-toggle="offcanvas"
+                type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div aria-labelledby="offcanvasDarkNavbarLabel" class="offcanvas offcanvas-end text-bg-light" id="offcanvasDarkNavbar"
+             tabindex="-1">
+            <div class="offcanvas-header">
+                <h3 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Customer Details</h3>
+                <button aria-label="Close" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas"
+                        type="button"></button>
+            </div>
+            <div class="offcanvas-body " style="height: 90vh">
+                <div class="d-flex flex-column container-fluid p-0">
+                    <div class="text-center" style="height: 50vh">
+                        <div class="text-center justify-content-center pb-1 pt-2">
+                            <button class="btn btn-warning position-absolute  " id="customerLogoutBtn" style="right:2% "
+                                    type="button">Logout
+                            </button>
+                            <div style="height: 75px;width: 75px;position: relative;left: 0 ;right: 0;margin: auto">
+                                <img alt="userImg" class="rounded-circle" height="75"
+                                     src="../assets/images/profile-pic.png"
+                                     width="75">
+                            </div>
+
+                        </div>
+                        <ul class="list-group list-group-flush text-center" id="customerDetailsList">
+                            <li class="list-group-item" id="customerNicLi"></li>
+                            <li class="list-group-item" id="customerNameLi"></li>
+                            <li class="list-group-item" id="customerEmailLi"></li>
+                            <li class="list-group-item" id="customerAddressLi"></li>
+                            <li class="list-group-item" id="customerTelLi"></li>
+                            <li class="list-group-item">
+                                <button class=" btn btn-outline-primary btn-sm" data-bs-target="#editCustomerDetails"
+                                        data-bs-toggle="modal" id="editCustomerDetailsBtn"
+                                        type="button">EDIT
+                                    DETAILS
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr class="border border-danger border-1 opacity-50">
+                    <h5 class="p-0 m-0">Booking History</h5>
+                    <hr class="border border-danger border-1 opacity-50">
+                    <div class="container-fluid" style="overflow-y: scroll;height: 22vh">
+                        <div class="p-2">Booking Example 01</div>
+                        <div class="p-2">Booking Example 01</div>
+                        <div class="p-2">Booking Example 01</div>
+                        <div class="p-2">Booking Example 01</div>
+                        <div class="p-2">Booking Example 01</div>
+                        <div class="p-2">Booking Example 01</div>
+                        <div class="p-2">Booking Example 01</div>
+                        <div class="p-2">Booking Example 01</div>
+                        <div class="p-2">Booking Example 01</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
 <div class="container-fluid text-center">
     <div class="row">
-        <div class="col-8 p-0" >
-            1 of 2
-        </div>
-
-        <div class="col-4 p-0 border border-4 border-dark rounded " style="height: 100vh">
-            <div class="d-flex flex-column container-fluid p-0">
-                <div style="height: 50vh">
-                    <div class="text-center justify-content-center pb-1 pt-2">
-                        <button style="right:2% " type="button" class="btn btn-warning position-absolute ">Logout</button>
-                        <div style="height: 75px;width: 75px;position: relative;left: 0 ;right: 0;margin: auto">
-                            <img class="rounded-circle" src="../assets/images/profile-pic.png" width="75" height="75"  alt="userImg">
-                        </div>
-
+        <div class="col p-0" style="height: 90vh;margin-top: 10vh">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button aria-controls="nav-GeneralCars" aria-selected="true" class="nav-link active"
+                            data-bs-target="#nav-GeneralCars"
+                            data-bs-toggle="tab" id="nav-GeneralCars-tab" role="tab" type="button">General Cars
+                    </button>
+                    <button aria-controls="nav-PremiumCars" aria-selected="false" class="nav-link"
+                            data-bs-target="#nav-PremiumCars"
+                            data-bs-toggle="tab" id="nav-PremiumCars-tab" role="tab" type="button">Premium Cars
+                    </button>
+                    <button aria-controls="nav-LuxuryCars" aria-selected="false" class="nav-link"
+                            data-bs-target="#nav-LuxuryCars"
+                            data-bs-toggle="tab" id="nav-LuxuryCars-tab" role="tab" type="button">Luxury Cars
+                    </button>
+                </div>
+            </nav>
+            <div class="tab-content " id="nav-tabContent">
+                <div aria-labelledby="nav-GeneralCars-tab" class="tab-pane fade show active" id="nav-GeneralCars" role="tabpanel"
+                     style="height: 80vh;overflow-y: scroll;width:100vw " tabindex="0">
+                    <div id="generalCarsContainer"  class="container-fluid text-center d-flex flex-wrap ">
+                        <!-- General Cars Load to this area-->
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">NIC : 200105500870</li>
-                        <li class="list-group-item">NAME : THARINDU LALANTHA</li>
-                        <li class="list-group-item">EMAIL : tharindulalantha2001@gmail.com</li>
-                        <li class="list-group-item">ADDRESS : 30,1st LANE MADHENA HIRANA PANADURA SRILANKA 12500</li>
-                        <li class="list-group-item">TEL : 0715463515</li>
-                        <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-sm">EDIT DETAILS</button></li>
-                    </ul>
                 </div>
-                <hr class="border border-danger border-1 opacity-50">
-                <h5 class="p-0 m-0">Booking History</h5>
-                <hr class="border border-danger border-1 opacity-50">
-                <div class="container-fluid" style="overflow-y: scroll;height: 35vh">
-                    <div class="p-2">Flex item 1</div>
-                    <div class="p-2">Flex item 2</div>
-                    <div class="p-2">Flex item 3</div>
-                    <div class="p-2">Flex item 1</div>
-                    <div class="p-2">Flex item 2</div>
-                    <div class="p-2">Flex item 3</div>
-                    <div class="p-2">Flex item 1</div>
-                    <div class="p-2">Flex item 2</div>
-                    <div class="p-2">Flex item 3</div>
-                    <div class="p-2">Flex item 1</div>
-                    <div class="p-2">Flex item 2</div>
-                    <div class="p-2">Flex item 3</div>
-                    <div class="p-2">Flex item 1</div>
-                    <div class="p-2">Flex item 2</div>
-                    <div class="p-2">Flex item 3</div>
-
+                <div aria-labelledby="nav-PremiumCars-tab" class="tab-pane fade" id="nav-PremiumCars" role="tabpanel"
+                     style="height: 80vh;overflow-y: scroll;width:100vw " tabindex="0">
+                    <div id="premiumCarsContainer" class="container-fluid text-center d-flex flex-wrap  ">
+                        <!-- Premium Cars Load to this area-->
+                    </div>
                 </div>
-
+                <div aria-labelledby="nav-LuxuryCars-tab" class="tab-pane fade" id="nav-LuxuryCars" role="tabpanel"
+                     style="height: 80vh;overflow-y: scroll;width:100vw " tabindex="0">
+                    <div id="luxuryCarsContainer" class="container text-center d-flex flex-wrap ">
+                        <!-- Luxury Cars Load to this area-->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<!-- Modal For Edit Customer Details  -->
+<div aria-hidden="true" aria-labelledby="staticBackdropLabel" class="modal fade" data-bs-backdrop="static"
+     data-bs-keyboard="false"
+     id="editCustomerDetails" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editCustomerDetailsLabel">Update Details</h5>
+                <!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text ">NIC</span>
+                    <input aria-describedby="basic-addon1" aria-label="NIC" class="form-control " disabled
+                           id="updateCusNicInput"
+                           placeholder="NIC" type="text">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">NAME</span>
+                    <input aria-describedby="basic-addon1" aria-label="NAME" class="form-control"
+                           id="updateCusNameInput" placeholder="NAME"
+                           type="text">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">EMAIL</span>
+                    <input aria-describedby="basic-addon1" aria-label="EMAIL" class="form-control"
+                           id="updateCusEmailInput"
+                           placeholder="EMAIL" type="text">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">ADDRESS</span>
+                    <input aria-describedby="basic-addon1" aria-label="ADDRESS" class="form-control"
+                           id="updateCusAddressInput"
+                           placeholder="ADDRESS" type="text">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">TEL</span>
+                    <input aria-describedby="basic-addon1" aria-label="TEL" class="form-control" id="updateCusTelInput"
+                           placeholder="TEL"
+                           type="text">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal" id="closeEditedDetailsBtn" type="button">
+                    Close
+                </button>
+                <button class="btn btn-success" id="saveEditedDetailsBtn" type="button">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal For Edit Customer Details End -->
 
 
 <script src="../assets/style/bootstrap/js/bootstrap.min.js"></script>
 <script src="../assets/js/jQuery/jquery-3.6.0.min.js"></script>
+<script src="../assets/js/customerPage.js"></script>
 </body>
 </html>
+
