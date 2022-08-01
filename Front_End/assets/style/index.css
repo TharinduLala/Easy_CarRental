@@ -55,7 +55,7 @@ header nav {
     color: black;
 }
 
-#loginFormDiv {
+#customerLoginSection {
     position: absolute;
     z-index: 5;
     right: 10%;
@@ -65,7 +65,7 @@ header nav {
     opacity: 0.9;
 }
 
-#loginFormDiv div p svg {
+#customerLoginSection div p svg {
     color: red;
 }
 
