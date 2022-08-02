@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link
-            href="../assets/images/logo.jpg"
+            href="../../assets/images/logo.jpg"
             rel="icon"
     />
     <meta
@@ -11,7 +11,7 @@
             name="viewport"
     />
     <title>Easy Car Rental</title>
-    <link href="../assets/style/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../assets/style/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <style> @import url('https://fonts.googleapis.com/css2?family=Sansita&display=swap');</style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
@@ -48,6 +48,9 @@
         <div aria-labelledby="offcanvasDarkNavbarLabel" class="offcanvas offcanvas-end text-bg-light" id="offcanvasDarkNavbar"
              tabindex="-1">
             <div class="offcanvas-header">
+                <button class="btn btn-warning offcanvas-title" id="customerLogoutBtn"
+                        type="button">Logout
+                </button>
                 <h3 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Customer Details</h3>
                 <button aria-label="Close" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas"
                         type="button"></button>
@@ -56,12 +59,10 @@
                 <div class="d-flex flex-column container-fluid p-0">
                     <div class="text-center" style="height: 50vh">
                         <div class="text-center justify-content-center pb-1 pt-2">
-                            <button class="btn btn-warning position-absolute  " id="customerLogoutBtn" style="right:2% "
-                                    type="button">Logout
-                            </button>
+
                             <div style="height: 75px;width: 75px;position: relative;left: 0 ;right: 0;margin: auto">
                                 <img alt="userImg" class="rounded-circle" height="75"
-                                     src="../assets/images/profile-pic.png"
+                                     src="../../assets/images/profile-pic.png"
                                      width="75">
                             </div>
 
@@ -202,9 +203,9 @@
 <!-- Modal For Edit Customer Details End -->
 
 
-<script src="../assets/style/bootstrap/js/bootstrap.min.js"></script>
-<script src="../assets/js/jQuery/jquery-3.6.0.min.js"></script>
-<script src="../assets/js/customerPage.js"></script>
+<script src="../../assets/style/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../assets/js/jQuery/jquery-3.6.0.min.js"></script>
+<script src="customerPage.js"></script>
 </body>
 </html>
 

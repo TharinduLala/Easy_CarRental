@@ -12,7 +12,7 @@
     />
     <title>Easy Car Rental</title>
     <link href="assets/style/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="assets/style/index.css" rel="stylesheet"/>
+    <link href="pages/Home/index.css" rel="stylesheet"/>
     <style>
         @media (min-width:320px) and (max-width:426px) {
             #regNewOuterDiv{
@@ -145,14 +145,18 @@
             <div class="mb-3" style="padding-left: 20px;padding-right: 20px">
                 <label class="form-label" for="password">Password</label>
                 <input class="form-control" id="password" name="password" required type="password">
+                <input class="form-check-input" id="showPasswordCusLogin" type="checkbox">
+                <label class="form-check-label" for="showPasswordCusLogin">
+                    Show Password
+                </label>
             </div>
             <div class="mb-3" style="padding-left: 20px;padding-right: 20px">
-                <div id="liveAlertPlaceholder"></div>
+                <div class="liveAlertPlaceholder"> <!--id="liveAlertPlaceholder"--></div>
                 <button class="btn btn-primary" id="customerLoginBtn" type="submit">Login</button>
             </div>
 
             <div class="mb-3" style="padding-left: 20px;padding-right: 20px">
-                <p>Haven't Account? <a id="registerNewLink" class="" href="#">Click to Register</a></p>
+                <p>Haven't Account? <a id="registerNewLink" href="#">Click to Register</a></p>
             </div>
         </form>
     </section>
@@ -217,8 +221,7 @@
     </section>
     <section  id="registerNew"  class="container-fluid d-flex justify-content-center align-items-center h-100 d-none " style="background-image: url('assets/images/registerFormBack.jpg');background-repeat: no-repeat;background-size: 100% 100%;">
         <div id="regNewOuterDiv" class="d-flex  container shadow-lg p-3 m-4 bg-dark text-white  w-50" style="opacity:0.9;border-radius: 40px">
-            <form class="row g-3 p-2">
-
+            <form id="registerNewForm" class="row g-3 p-2">
                 <div class="col-12">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button id="newRegToHome" class="btn btn-warning me-md-2" type="button">Home</button>
@@ -228,28 +231,28 @@
                 </div>
                 <div class="col-12 col-md-12 col-lg-6">
                     <label class="form-label" for="inputNic">Customer NIC (<span class="fst-italic " style="font-size: 0.8rem">This will be you login UserId</span>)</label>
-                    <input class="form-control" id="inputNic" type="text">
+                    <input class="form-control" id="inputNic" type="text" required>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6">
                     <label class="form-label" for="inputEmail">Email</label>
-                    <input class="form-control" id="inputEmail" type="email">
+                    <input class="form-control" id="inputEmail" type="email" required>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6">
                     <label class="form-label" for="inputFirstName">First Name</label>
-                    <input class="form-control" id="inputFirstName" type="text">
+                    <input class="form-control" id="inputFirstName" type="text" required>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6">
                     <label class="form-label" for="inputLastName">Last Name</label>
-                    <input class="form-control" id="inputLastName" type="text">
+                    <input class="form-control" id="inputLastName" type="text" required>
                 </div>
                 <div class="col-12 col-sm-12">
                     <label class="form-label" for="inputAddress">Address</label>
                     <input class="form-control" id="inputAddress"
-                           type="text">
+                           type="text" required>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6">
                     <label class="form-label" for="inputTel">Contact No.</label>
-                    <input class="form-control" id="inputTel" type="text">
+                    <input class="form-control" id="inputTel" type="text" required>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6">
                         <label class="form-label" for="inputNicImg">Nic or Driving License Image</label>
@@ -257,20 +260,21 @@
                 </div>
                 <div class="col-12 col-md-12 col-lg-6">
                     <label class="form-label" for="inputPassword">Password</label>
-                    <input class="form-control" id="inputPassword" type="password">
+                    <input class="form-control" id="inputPassword" type="password" required>
                 </div>
                 <div class="col-12 col-md-12 col-lg-6">
                     <label class="form-label" for="inputAgainPassword">Re Enter Password</label>
-                    <input class="form-control" id="inputAgainPassword" type="password">
+                    <input class="form-control" id="inputAgainPassword" type="password" required>
 
-                    <input class="form-check-input" id="showPassword" type="checkbox">
-                    <label class="form-check-label" for="showPassword">
+                    <input class="form-check-input" id="showPasswordRegNew" type="checkbox">
+                    <label class="form-check-label" for="showPasswordRegNew">
                         Show Password
                     </label>
                 </div>
 
                 <div class="d-grid gap-2 col-12 col-md-12 col-lg-6 mx-auto">
-                    <button class="btn btn-primary" type="submit">Register</button>
+                    <div class="liveAlertPlaceholder"> <!--id="liveAlertPlaceholder"--></div>
+                    <button id="registerNewCustomerBtn" class="btn btn-primary" type="submit">Register</button>
                 </div>
             </form>
         </div>
@@ -313,6 +317,6 @@
 
 <script src="assets/style/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/jQuery/jquery-3.6.0.min.js"></script>
-<script src="assets/js/index.js"></script>
+<script src="pages/Home/index.js"></script>
 </body>
 </html>

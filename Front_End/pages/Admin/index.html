@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link
+            href="../../assets/images/logo.jpg"
+            rel="icon"
+    />
+    <meta
+            content="width=device-width,initial-scale=1.0"
+            name="viewport"
+    />
+    <title>Easy Car Rental</title>
+    <link href="../../assets/style/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <style> @import url('https://fonts.googleapis.com/css2?family=Sansita&display=swap');</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+    </style>
+    <style>
+
+        @media (min-width:320px) and (max-width:770px) {
+            .viewDetailsContainer {
+                width: 100% !important;
+            }
+            .tableContainer {
+                width: 100% !important;
+            }
+        }
+        @media only screen
+        and (min-device-width: 771px)
+        and (max-device-width: 1024px){
+            .viewDetailsContainer {
+                width: 50% !important;
+            }
+            .tableContainer {
+                width: 50% !important;
+            }
+        }
+    </style>
+</head>
+<body class="position-relative">
+    <nav id="nav" class="navbar navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <h1 style="font-family: 'Sansita', sans-serif;font-weight: bold;">Admin Dashboard</h1>
+            <h2 id="currentPageH2" style="font-family: 'Sansita', sans-serif;font-weight: bold;"></h2>
+            <button aria-controls="offcanvasDarkNavbar" class="navbar-toggler" data-bs-target="#offcanvasDarkNavbar" data-bs-toggle="offcanvas"
+                    type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div aria-labelledby="offcanvasDarkNavbarLabel" class="offcanvas offcanvas-end text-bg-light" id="offcanvasDarkNavbar"
+                 tabindex="-1">
+                <div class="offcanvas-header">
+                    <button class="btn btn-warning offcanvas-title   " id="customerLogoutBtn" type="button">Logout</button>
+                    <button id="navCloseBtn" aria-label="Close" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" type="button"></button>
+                </div>
+                <div class="offcanvas-body " style="height: 90vh">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3 ps-3">
+                        <li class="nav-item">
+                            <a id="navHome" class="nav-link active fs-5" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="navBookings" class="nav-link active fs-5" href="#">Bookings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="navVehicles" class="nav-link active fs-5" href="#">Vehicles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="navDrivers" class="nav-link active fs-5" href="#">Drivers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="navCustomers" class="nav-link active fs-5" href="#">Customers</a>
+                        </li>
+                    </ul>
+                    <hr class="border border-danger border-2 opacity-50">
+                    <div class="d-flex flex-column container-fluid p-0">
+                        <h3 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Admin Details</h3>
+                        <div class="text-center" style="height: 50vh">
+                            <div class="text-center justify-content-center pb-1 pt-2">
+
+                                <div style="height: 75px;width: 75px;position: relative;left: 0 ;right: 0;margin: auto">
+                                    <img alt="userImg" class="rounded-circle" height="75"
+                                         src="../../assets/images/profile-pic.png"
+                                         width="75">
+                                </div>
+
+                            </div>
+                            <ul class="list-group list-group-flush text-center" id="customerDetailsList">
+                                <li class="list-group-item" id="adminNicLi"></li>
+                                <li class="list-group-item" id="adminNameLi"></li>
+                                <li class="list-group-item" id="adminEmailLi"></li>
+                                <li class="list-group-item" id="adminTelLi"></li>
+                                <li class="list-group-item">
+                                    <button class=" btn btn-outline-primary btn-sm" data-bs-target="#editAdminDetails"
+                                            data-bs-toggle="modal" id="editAdminDetailsBtn"
+                                            type="button">EDIT
+                                        DETAILS
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="homeSection" class="mt-3 position-relative d-block bg-dark vh-100"></section>
+    <section id="bookingsSection" class="mt-3 position-relative d-none bg-primary vh-100"></section>
+    <section id="vehiclesSection" class="mt-3 position-relative d-none bg-info vh-100"></section>
+    <section id="driversSection" class="mt-3 position-relative d-none bg-warning vh-100"></section>
+    <section id="customerSection" class="mt-3 position-relative d-none">
+        <div class="container-fluid text-center d-flex flex-wrap ">
+            <div class="border border-dark p-3 w-50 position-relative viewDetailsContainer shadow rounded">
+                <form  class="row g-3 p-2">
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <label class="form-label" for="customerNic">Customer NIC</label>
+                        <input class="form-control" id="customerNic" type="text" required>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <label class="form-label" for="customerEmail">Email</label>
+                        <input class="form-control" id="customerEmail" type="email" required>
+                    </div>
+                    <div class="col-12 col-sm-12">
+                        <label class="form-label" for="customerName">First Name</label>
+                        <input class="form-control" id="customerName" type="text" required>
+                    </div>
+                    <div class="col-12 col-sm-12">
+                        <label class="form-label" for="customerAddress">Address</label>
+                        <input class="form-control" id="customerAddress"
+                               type="text" required>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <label class="form-label" for="customerTel">Contact No.</label>
+                        <input class="form-control" id="customerTel" type="text" required>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <label class="form-label" for="customerPassword">Password</label>
+                        <input class="form-control" id="customerPassword" type="text" required>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <img src="..." height="200" width="200" class="rounded float-start img-thumbnail" alt="customer nic img">
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <button id="removeCustomer" class="btn btn-danger" type="button">Remove Customer</button>
+                    </div>
+                </form>
+            </div>
+            <div class="border border-dark p-2 w-50  position-relative tableContainer shadow rounded">
+                <div class="table-responsive" style="height: 80vh;overflow-y: scroll">
+                    <table class="table table-hover table-bordered border-secondary">
+                        <thead class="table-dark">
+                        <tr>
+                            <th class="position-sticky top-0">Customer NIC</th>
+                            <th class="position-sticky top-0">Customer Name</th>
+                            <th class="position-sticky top-0">Customer Email</th>
+                            <th class="position-sticky top-0">View More</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td><button type="button" class="btn btn-primary">View More</button></td>
+                        </tr>
+                        <tr>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td><button type="button" class="btn btn-primary">View More</button></td>
+                        </tr>
+                        <tr>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td><button type="button" class="btn btn-primary">View More</button></td>
+                        </tr>
+                        <tr>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td><button type="button" class="btn btn-primary">View More</button></td>
+                        </tr>
+                        <tr>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td><button type="button" class="btn btn-primary">View More</button></td>
+                        </tr>
+                        <tr>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td><button type="button" class="btn btn-primary">View More</button></td>
+                        </tr>
+                        <tr>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td><button type="button" class="btn btn-primary">View More</button></td>
+                        </tr>
+                        <tr>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td><button type="button" class="btn btn-primary">View More</button></td>
+                        </tr>
+                        <tr>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td><button type="button" class="btn btn-primary">View More</button></td>
+                        </tr> <tr>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td>This cell is aligned to the top.</td>
+                            <td><button type="button" class="btn btn-primary">View More</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<div aria-hidden="true" aria-labelledby="staticBackdropLabel" class="modal fade" data-bs-backdrop="static"
+     data-bs-keyboard="false"
+     id="editAdminDetails" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editAdminDetailsLabel">Update Details</h5>
+                <!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text ">NIC</span>
+                    <input aria-describedby="basic-addon1" aria-label="NIC" class="form-control " disabled
+                           id="updateAdminNicInput"
+                           placeholder="NIC" type="text">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">NAME</span>
+                    <input aria-describedby="basic-addon1" aria-label="NAME" class="form-control"
+                           id="updateAdminNameInput" placeholder="NAME"
+                           type="text">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">EMAIL</span>
+                    <input aria-describedby="basic-addon1" aria-label="EMAIL" class="form-control"
+                           id="updateAdminEmailInput"
+                           placeholder="EMAIL" type="text">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">TEL</span>
+                    <input aria-describedby="basic-addon1" aria-label="TEL" class="form-control" id="updateAdminTelInput"
+                           placeholder="TEL"
+                           type="text">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal" id="closeEditedDetailsBtn" type="button">
+                    Close
+                </button>
+                <button class="btn btn-success" id="saveEditedDetailsBtn" type="button">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../assets/style/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../assets/js/jQuery/jquery-3.6.0.min.js"></script>
+<script src="adminPage.js"></script>
+</body>
+</html>
+

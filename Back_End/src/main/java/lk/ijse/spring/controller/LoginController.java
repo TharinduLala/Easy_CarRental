@@ -21,7 +21,7 @@ public class LoginController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "/customer",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil customerLogin(@ModelAttribute LoginDetailsDto loginDetailsDto) {
+    public ResponseUtil customerLogin(@RequestBody LoginDetailsDto loginDetailsDto) {
         String customerPassword = customerService.getCustomerPassword(loginDetailsDto.getUserId());
         if (customerPassword.equals(loginDetailsDto.getPassword())) {
             return new ResponseUtil(200, "Login Successfully...", null);
@@ -31,7 +31,7 @@ public class LoginController {
     }
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(path = "/admin",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil adminLogin(@ModelAttribute LoginDetailsDto loginDetailsDto) {
+    public ResponseUtil adminLogin(@RequestBody LoginDetailsDto loginDetailsDto) {
         String adminPassword = adminService.getAdminPassword(loginDetailsDto.getUserId());
         if (adminPassword.equals(loginDetailsDto.getPassword())) {
             return new ResponseUtil(200, "Login Successfully...", null);

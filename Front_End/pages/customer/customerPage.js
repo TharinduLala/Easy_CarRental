@@ -93,7 +93,7 @@ function loadCustomer() {
 
 function logout() {
     localStorage.clear();
-    location.replace("../index.html");
+    location.replace("../../index.html");
 }
 
 function setCustomerDetails() {
