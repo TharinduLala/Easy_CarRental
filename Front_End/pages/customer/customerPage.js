@@ -15,7 +15,7 @@ setCustomerDetails();
 loadCars()
 
 $('#customerLogoutBtn').on('click', function () {
-    logout();
+    // logout();
 });
 
 $('#editCustomerDetailsBtn').on('click', function () {
