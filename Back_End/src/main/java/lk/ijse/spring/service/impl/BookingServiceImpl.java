@@ -1,6 +1,7 @@
 package lk.ijse.spring.service.impl;
 
 import lk.ijse.spring.dto.BookingDto;
+import lk.ijse.spring.dto.CustomerDto;
 import lk.ijse.spring.entity.Booking;
 import lk.ijse.spring.repo.BookingRepo;
 import lk.ijse.spring.service.BookingService;
@@ -62,6 +63,12 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public List<BookingDto> getAllBookings() {
         return modelMapper.map(bookingRepo.findAll(), new TypeToken<List<BookingDto>>() {
+        }.getType());
+    }
+
+    @Override
+    public List<BookingDto> getBookingsByCustomerNic(String customerNic) {
+        return modelMapper.map(bookingRepo.getBookingsByCustomer(customerNic), new TypeToken<List<BookingDto>>() {
         }.getType());
     }
 }

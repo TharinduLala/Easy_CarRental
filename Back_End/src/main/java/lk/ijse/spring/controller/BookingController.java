@@ -43,4 +43,9 @@ public class BookingController {
         bookingService.deleteBooking(bookingId);
         return new ResponseUtil(200, "Deleted Successfully", null);
     }
+    @GetMapping(params = {"customerNic"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getAllBookingsByCustomer(@RequestParam String customerNic) {
+        return new ResponseUtil(200, "Ok", bookingService.getBookingsByCustomerNic(customerNic));
+    }
+
 }

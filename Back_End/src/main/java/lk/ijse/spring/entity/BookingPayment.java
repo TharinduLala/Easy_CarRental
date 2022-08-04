@@ -23,5 +23,6 @@ public class BookingPayment {
     private double extraDistance;
     private double rentalCost;
     private double costForExtraDistance;
+    private double driverCost;
     private double totalPayment;
 }

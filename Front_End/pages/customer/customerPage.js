@@ -14,8 +14,10 @@ setCustomerDetails();
 
 loadCars()
 
+loadCustomerBookingHistory();
+
 $('#customerLogoutBtn').on('click', function () {
-    // logout();
+    logout();
 });
 
 $('#editCustomerDetailsBtn').on('click', function () {
@@ -102,11 +104,11 @@ function setCustomerDetails() {
         method: "GET",
         success: function (res) {
             if (res.statusCode === 200) {
-                $('#customerNicLi').html("NIC : " + res.data.customerNic);
-                $('#customerNameLi').html("NAME : " + res.data.customerName);
-                $('#customerEmailLi').html("EMAIL : " + res.data.customerEmail);
-                $('#customerAddressLi').html("ADDRESS : " + res.data.customerAddress);
-                $('#customerTelLi').html("TEL : " + res.data.customerTel);
+                $('#customerNicLi').text(res.data.customerNic);
+                $('#customerNameLi').text(res.data.customerName);
+                $('#customerEmailLi').text(res.data.customerEmail);
+                $('#customerAddressLi').text(res.data.customerAddress);
+                $('#customerTelLi').text(res.data.customerTel);
             }
         },
         error: function (ob) {
@@ -151,13 +153,10 @@ function bindClickEventsToCarContainer() {
 
 
     $('.bookThisCar').off().on('click', function () {
-        let car = $(this).parent().parent().closest('div').find('h2').text();
-        placeBooking(car);
+        let carRegNo = $(this).parent().parent().closest('div').find('h2').text();
+        let name = $(this).parent().parent().closest('div').find('h3').text();
+        placeBooking(carRegNo, name);
     });
-}
-
-function placeBooking(car) {
-    console.log("hello" + car);
 }
 
 function loadCars() {
@@ -228,7 +227,7 @@ function appendCar(type, imgUrl, carBrand, noOfPassengers, fuelType, transmissio
     </div>
     <div aria-label="Basic outlined example" class="btn-group " role="group">
         <button class="btn btn-outline-dark me-2 viewCarDetailsBtn" type="button">VIEW DETAILS</button>
-        <button class="btn btn-primary ps-5 pe-5 bookThisCar text-wrap " type="button">BOOK NOW</button>
+        <button data-bs-toggle="modal" data-bs-target="#placeBookingModal" class="btn btn-primary ps-5 pe-5 bookThisCar text-wrap " type="button">BOOK NOW</button>
     </div>
    <div class="carDetailsContainer rounded" style="position: absolute;top: 20px;left: 0;right: 0;margin: auto;background: black;color: white;display: none;width: 80%;height: 50%;opacity: 0.9;z-index: 5;">
         <button aria-label="Close" class="btn-close btn-close-white carDetailsContainerCloseBtn" type="button"></button>
@@ -246,3 +245,102 @@ function appendCar(type, imgUrl, carBrand, noOfPassengers, fuelType, transmissio
         bindClickEventsToCarContainer();
     }
 }
+
+function placeBooking(carRegNo, name) {
+    let currentDate = new Date();
+    let date = ((currentDate.getDate()) < 10 ? "0" : "") + (currentDate.getDate());
+    let month = ((currentDate.getMonth() + 1) < 10 ? "0" : "") + (currentDate.getMonth() + 1);
+    let year = currentDate.getFullYear();
+    let hour = currentDate.getHours();
+    let minute = ((currentDate.getMinutes()) < 10 ? "0" : "") + (currentDate.getMinutes());
+    let cusId = $('#customerNicLi').text();
+    let bookingId = year + "" + month + "" + date + "" + hour + "" + minute + "" + cusId;
+    $('#bookingId').text(bookingId);
+    $('#carName').text(name);
+    $('#carNo').text(carRegNo);
+    $('#cusId').text(cusId);
+    $('#cusName').text($('#customerNameLi').text());
+}
+
+function bookingFinish() {
+    let bookingId = $('#bookingId').text();
+    let pickupDate = $("#pickUpDate").val();
+    let pickupTime = $('#pickUpTime').val();
+    let packageType = $('#packageType :selected').text();
+    let driverInfo = $('#driverInfo :selected').text();
+    let bookingStatus = 'Pending';
+    let paymentSlip = null;
+    let car = $('#carNo').text();
+    let customer = $('#cusId').text();
+
+
+    if (!(pickupTime === '' || pickupDate === '' || packageType === '' || driverInfo === '')) {
+        let booking = {
+            bookingId: bookingId,
+            pickupDate: pickupDate,
+            pickupTime: pickupTime,
+            packageType: packageType,
+            bookingStatus: bookingStatus,
+            paymentSlip: paymentSlip,
+            customer: {"customerNic": customer},
+            car: {"carRegNo": car},
+            driveInfo: driverInfo,
+            driver: null
+        }
+        $.ajax({
+            url: baseUrl + "booking",
+            method: "POST",
+            data: JSON.stringify(booking),
+            contentType: "application/json",
+            success: function (res) {
+                if (res.statusCode === 200) {
+                    alert(res.message);
+                    $("#pickUpDate").val('');
+                    $('#pickUpTime').val('');
+                    $('#closePlaceBookingModal2').trigger('click');
+                    loadCustomerBookingHistory();
+                }
+            },
+            error: function (ob) {
+                alert(ob.responseJSON.message);
+            }
+        });
+    } else {
+        alert('Please Fill All Fields');
+    }
+
+}
+
+function loadCustomerBookingHistory() {
+
+    $.ajax({
+        url: baseUrl + "booking?customerNic=" + customerNic,
+        method: "GET",
+        success: function (res) {
+            if (res.statusCode === 200) {
+                for (const b of res.data) {
+                    let booking = `<div class="p-1 container text-center border border-primary ">
+                     <div class="row">
+                        <div class="col">
+                            <p>ID:<span id="viewBookingDetailsId">${b.bookingId}</span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col fst-italic text-primary">
+                            ${b.bookingStatus}
+                        </div>
+                        <div class="col">
+                             <button class="btn btn-secondary viewBookingDetails" type="button">details</button>
+                        </div>
+                    </div>
+                </div>`;
+                    $('#customerBookingHistory').append(booking)
+                }
+            }
+        },
+        error: function () {
+            alert("Failed to load Data");
+        }
+    });
+}
+

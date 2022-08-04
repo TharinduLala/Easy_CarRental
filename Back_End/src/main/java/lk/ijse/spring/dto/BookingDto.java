@@ -22,12 +22,11 @@ public class BookingDto {
     private LocalDate pickupDate;
     @JsonFormat(pattern = "HH:mm")
     private LocalTime pickupTime;
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate returnDate;
+    private String packageType;
     private String bookingStatus;
-    private double downPayment;
     private String paymentSlip;
     private Customer customer;
     private Car car;
+    private String driveInfo;
     private Driver driver;
 }

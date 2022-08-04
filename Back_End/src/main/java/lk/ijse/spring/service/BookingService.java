@@ -14,4 +14,7 @@ public interface BookingService {
     BookingDto searchBooking(String bookingId);
 
     List<BookingDto> getAllBookings();
+
+    List<BookingDto> getBookingsByCustomerNic(String customerNic);
+
 }

@@ -10,6 +10,7 @@
             content="width=device-width,initial-scale=1.0"
             name="viewport"
     />
+
     <title>Easy Car Rental</title>
     <link href="../../assets/style/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <style> @import url('https://fonts.googleapis.com/css2?family=Sansita&display=swap');</style>
@@ -20,14 +21,16 @@
         * {
             font-family: 'Prompt', sans-serif;
         }
-        @media (min-width:320px) and (max-width:426px) {
+
+        @media (min-width: 320px) and (max-width: 426px) {
             .car-main-container {
                 width: 100% !important;
             }
         }
+
         @media only screen
         and (min-device-width: 768px)
-        and (max-device-width: 1024px){
+        and (max-device-width: 1024px) {
             .car-main-container {
                 width: 40% !important;
             }
@@ -41,17 +44,19 @@
     <div class="container-fluid">
         <h1 style="font-family: 'Sansita', sans-serif;
     font-weight: bold;">Customer Dashboard</h1>
-        <button aria-controls="offcanvasDarkNavbar" class="navbar-toggler" data-bs-target="#offcanvasDarkNavbar" data-bs-toggle="offcanvas"
+        <button aria-controls="offcanvasDarkNavbar" class="navbar-toggler" data-bs-target="#offcanvasDarkNavbar"
+                data-bs-toggle="offcanvas"
                 type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div aria-labelledby="offcanvasDarkNavbarLabel" class="offcanvas offcanvas-end text-bg-light" id="offcanvasDarkNavbar"
+        <div aria-labelledby="offcanvasDarkNavbarLabel" class="offcanvas offcanvas-end text-bg-light"
+             id="offcanvasDarkNavbar"
              tabindex="-1">
             <div class="offcanvas-header">
                 <button class="btn btn-warning offcanvas-title" id="customerLogoutBtn"
                         type="button">Logout
                 </button>
-                <h3 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Customer Details</h3>
+                <h4 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Customer Details</h4>
                 <button aria-label="Close" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas"
                         type="button"></button>
             </div>
@@ -67,12 +72,12 @@
                             </div>
 
                         </div>
-                        <ul class="list-group list-group-flush text-center" id="customerDetailsList">
-                            <li class="list-group-item" id="customerNicLi"></li>
-                            <li class="list-group-item" id="customerNameLi"></li>
-                            <li class="list-group-item" id="customerEmailLi"></li>
-                            <li class="list-group-item" id="customerAddressLi"></li>
-                            <li class="list-group-item" id="customerTelLi"></li>
+                        <ul class="list-group list-group-flush text-center pb-0" id="customerDetailsList">
+                            <li class="list-group-item" >Customer ID :<span id="customerNicLi"></span></li>
+                            <li class="list-group-item" >Name :<span id="customerNameLi"></span></li>
+                            <li class="list-group-item" >Email :<span id="customerEmailLi"></span></li>
+                            <li class="list-group-item" >Address :<span id="customerAddressLi"></span></li>
+                            <li class="list-group-item" >Tel :<span id="customerTelLi"></span></li>
                             <li class="list-group-item">
                                 <button class=" btn btn-outline-primary btn-sm" data-bs-target="#editCustomerDetails"
                                         data-bs-toggle="modal" id="editCustomerDetailsBtn"
@@ -82,21 +87,11 @@
                             </li>
                         </ul>
                     </div>
-                    <hr class="border border-danger border-1 opacity-50">
-                    <h5 class="p-0 m-0">Booking History</h5>
-                    <hr class="border border-danger border-1 opacity-50">
-                    <div class="container-fluid" style="overflow-y: scroll;height: 22vh">
-                        <div class="p-2">Booking Example 01</div>
-                        <div class="p-2">Booking Example 01</div>
-                        <div class="p-2">Booking Example 01</div>
-                        <div class="p-2">Booking Example 01</div>
-                        <div class="p-2">Booking Example 01</div>
-                        <div class="p-2">Booking Example 01</div>
-                        <div class="p-2">Booking Example 01</div>
-                        <div class="p-2">Booking Example 01</div>
-                        <div class="p-2">Booking Example 01</div>
+                    <hr class="border border-danger border-1 p-0 opacity-50">
+                    <h6 class="p-0 m-0">Booking History</h6>
+                    <hr class="border border-danger border-1 p-0 opacity-50">
+                    <div id="customerBookingHistory" class="container-fluid" style="overflow-y: scroll;height: 24vh">
                     </div>
-
                 </div>
             </div>
         </div>
@@ -125,21 +120,22 @@
                 </div>
             </nav>
             <div class="tab-content " id="nav-tabContent">
-                <div aria-labelledby="nav-GeneralCars-tab" class="tab-pane fade show active" id="nav-GeneralCars" role="tabpanel"
+                <div aria-labelledby="nav-GeneralCars-tab" class="tab-pane fade show active" id="nav-GeneralCars"
+                     role="tabpanel"
                      style="height: 80vh;overflow-y: scroll;width:100vw " tabindex="0">
-                    <div id="generalCarsContainer"  class="container-fluid text-center d-flex flex-wrap ">
+                    <div class="container-fluid text-center d-flex flex-wrap " id="generalCarsContainer">
                         <!-- General Cars Load to this area-->
                     </div>
                 </div>
                 <div aria-labelledby="nav-PremiumCars-tab" class="tab-pane fade" id="nav-PremiumCars" role="tabpanel"
                      style="height: 80vh;overflow-y: scroll;width:100vw " tabindex="0">
-                    <div id="premiumCarsContainer" class="container-fluid text-center d-flex flex-wrap  ">
+                    <div class="container-fluid text-center d-flex flex-wrap  " id="premiumCarsContainer">
                         <!-- Premium Cars Load to this area-->
                     </div>
                 </div>
                 <div aria-labelledby="nav-LuxuryCars-tab" class="tab-pane fade" id="nav-LuxuryCars" role="tabpanel"
                      style="height: 80vh;overflow-y: scroll;width:100vw " tabindex="0">
-                    <div id="luxuryCarsContainer" class="container-fluid text-center d-flex flex-wrap  ">
+                    <div class="container-fluid text-center d-flex flex-wrap  " id="luxuryCarsContainer">
                         <!-- Premium Cars Load to this area-->
                     </div>
                 </div>
@@ -201,6 +197,109 @@
     </div>
 </div>
 <!-- Modal For Edit Customer Details End -->
+
+
+<div aria-hidden="true" aria-labelledby="exampleModalToggleLabel" class="modal fade" data-bs-backdrop="static"
+     id="placeBookingModal" tabindex="-1">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Place Booking</h5>
+                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-danger">
+                    <svg class="bi bi-exclamation-circle" fill="currentColor" height="16" viewBox="0 0 16 16"
+                         width="16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                    </svg>
+                    please note
+                </p>
+                <p class="text-wrap">
+                    You need to pay the Loss Damage Waiver payment value of car that you selected to the below given
+                    bank account information and upload the bank slip or the bank confirmation to the dedicated field in
+                    the next slide.
+                </p>
+                <ul>
+                    <li>Bank Name</li>
+                    <li>Account Holder</li>
+                    <li>Account Number</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#placeBookingModal2" data-bs-toggle="modal">
+                    <svg class="bi bi-arrow-right" fill="currentColor" height="16" viewBox="0 0 16 16"
+                         width="16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" class="modal fade" data-bs-backdrop="static"
+     id="placeBookingModal2" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel2">Place Booking</h5>
+                <button id="closePlaceBookingModal2" aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+            </div>
+            <div class="modal-body">
+                <p>Booking Id :<span id="bookingId"></span></p>
+                <p>Customer Id :<span id="cusId"></span></p>
+                <p>Customer Name :<span id="cusName"></span></p>
+                <p>Car :<span id="carName"></span></p>
+                <p>Car Number :<span id="carNo"></span></p>
+                <form  class="row g-3 p-2">
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <label class="form-label" for="pickUpDate">Pickup Date</label>
+                        <input class="form-control" id="pickUpDate" type="date">
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <label class="form-label" for="pickUpTime">Pickup Time</label>
+                        <input class="form-control" id="pickUpTime" type="time">
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <label class="form-label" for="packageType">Select Package</label>
+                        <select class="form-select" id="packageType">
+                            <option value="1">Daily</option>
+                            <option value="2">Monthly</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <label class="form-label" for="driverInfo">Drive</label>
+                        <select class="form-select" id="driverInfo">
+                            <option value="1">Self Drive</option>
+                            <option value="2">With Driver</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-6">
+                        <label class="form-label" for="inputNicImg">Bank Slip</label>
+                        <input class="form-control" type="file" id="inputNicImg" disabled>
+                    </div>
+                </form>
+                <p>
+                    <svg color="red" class="bi bi-exclamation-circle" fill="currentColor" height="16" viewBox="0 0 16 16"
+                         width="16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                    </svg>
+                   after checking details admin will approve your booking...
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
+                <button class="btn btn-primary" id="placeBookingFinish" onclick="bookingFinish()" type="button">Place
+                    Booking
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <script src="../../assets/style/bootstrap/js/bootstrap.min.js"></script>

@@ -19,9 +19,8 @@ public class Booking {
     private String bookingId;
     private LocalDate pickupDate;
     private LocalTime pickupTime;
-    private LocalDate returnDate;
+    private String packageType;
     private String bookingStatus;
-    private double downPayment;
     private String paymentSlip;
     @ManyToOne
     @JoinColumn(name = "customerNic", referencedColumnName = "customerNic", nullable = false)
@@ -29,6 +28,7 @@ public class Booking {
     @ManyToOne
     @JoinColumn(name = "carRegNo", referencedColumnName = "carRegNo", nullable = false)
     private Car car;
+    private String driveInfo;
     @ManyToOne
     @JoinColumn(name = "driverNic", referencedColumnName = "driverNic")
     private Driver driver;
