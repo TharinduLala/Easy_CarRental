@@ -27,4 +27,4 @@ yarn-error.log*
 
 temp.html
 *.iml
-out
+out/
