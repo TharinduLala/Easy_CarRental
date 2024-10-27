@@ -165,7 +165,9 @@ function loadCars() {
         method: "GET",
         success: function (res) {
             if (res.statusCode === 200) {
+
                 for (const car of res.data) {
+                    console.log(car)
                     appendCar(car.carType, car.carFrontImg, car.carBrand, car.noOfPassengers, car.fuelType, car.transmissionType, car.carColour, car.carRegNo);
                 }
             }
@@ -179,7 +181,7 @@ function loadCars() {
 function appendCar(type, imgUrl, carBrand, noOfPassengers, fuelType, transmissionType, carColour, carRegNum) {
     const car = `<div class="car-main-container w-25  shadow-lg p-3 m-4  bg-body rounded position-relative">
     <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;width: 100%;background-color: transparent;border-radius: 16px;margin-bottom: 20px;overflow: hidden;position: relative">
-        <img alt="car" src=${imgUrl} style="width: 100%;border-radius: 16px;">
+        <img alt="car" src="../../assets/images/vehicles/suzuki-alto-k10-auto-sri-lanka.jpg" style="width: 100%;border-radius: 16px;">
     </div>
     <div class="d-flex flex-row justify-content-between align-items-center position-relative" style="width: 100%;padding: 0 10px">
         <h3 class="text-wrap" style="font-size: 20px;line-height: 30px;color: #33334f;margin-bottom: 0;font-family: 'Nunito', sans-serif;font-weight: 600;width: 100%;white-space: nowrap;text-overflow: ellipsis;word-wrap: break-word;">

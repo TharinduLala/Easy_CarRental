@@ -54,6 +54,7 @@ $(function () {
     removeDriverBtn.prop('disabled', true);
 
 });
+
 showPasswordAdminLogin.on('change', function () {
     $(this).prop("checked") ? adminLoginPassword.prop("type", "text") : adminLoginPassword.prop("type", "password");
 });
